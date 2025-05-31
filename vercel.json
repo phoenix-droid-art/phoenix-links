@@ -1,0 +1,11 @@
+{
+    "kv": {
+      "bindings": [
+        {
+          "name": "LINKS",
+          "database": "phoenix-kv"
+        }
+      ]
+    }
+  }
+  
