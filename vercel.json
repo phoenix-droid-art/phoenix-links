@@ -1,11 +1,5 @@
 {
-    "kv": {
-      "bindings": [
-        {
-          "name": "LINKS",
-          "database": "phoenix-kv"
-        }
-      ]
-    }
-  }
-  
+  "rewrites": [
+    { "source": "/:slug", "destination": "/[slug]" }
+  ]
+}
