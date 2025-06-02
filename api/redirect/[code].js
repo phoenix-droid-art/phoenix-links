@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         </style>
       </head>
       <body>
-        <img src="/logo.png" alt="Logo" />
+        <img src="/logo.jpg" alt="Logo" />
         <p>Redirecionando...</p>
       </body>
     </html>
