@@ -115,7 +115,7 @@ function App() {
           <div className="text-center mb-4 animate-fade-in">
             <div className="inline-flex items-center justify-center mb-2">
               <img 
-                src="/assets/logo-vertical.png" 
+                src="https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/logo-vertical.png" 
                 alt="Phoenix Logo" 
                 className="h-40 sm:h-48 object-contain"
               />
