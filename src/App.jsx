@@ -6,6 +6,7 @@ import {
   Youtube,
   Globe
 } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
 
 // Custom TikTok Icon Component
 const TikTokIcon = ({ className }) => (
@@ -18,33 +19,38 @@ function App() {
   const socialLinks = [
     { 
       name: 'Landing Page', 
-      url: 'https://phoenix.com.br', 
+      url: 'https://be-phoenix.vercel.app', 
       icon: Globe
     },
     { 
       name: 'Instagram', 
-      url: 'https://instagram.com/phoenix', 
+      url: 'https://www.instagram.com/phoenix_english_school', 
       icon: Instagram
     },
     { 
       name: 'Facebook', 
-      url: 'https://facebook.com/phoenix', 
+      url: 'https://www.facebook.com/phoenixenglishschool', 
       icon: Facebook
     },
     { 
       name: 'TikTok', 
-      url: 'https://tiktok.com/@phoenix', 
+      url: 'https://www.tiktok.com/@phoenix.pedreiras', 
       icon: TikTokIcon
     },
     { 
       name: 'LinkedIn', 
-      url: 'https://linkedin.com/company/phoenix', 
+      url: 'https://www.linkedin.com/company/phoenix-english-school', 
       icon: Linkedin
     },
     { 
       name: 'YouTube', 
-      url: 'https://youtube.com/@phoenix', 
+      url: 'https://www.youtube.com/@phoenixpedreiras?sub_confirmation=1', 
       icon: Youtube
+    },
+    { 
+      name: 'Whatsapp', 
+      url: 'https://api.whatsapp.com/send/?phone=5599992066131',
+      icon: FaWhatsapp
     },
   ]
 
@@ -170,7 +176,7 @@ function App() {
           {/* Footer */}
           <div className="mt-16 text-center animate-fade-in">
             <p className="text-gray-600 text-sm">
-              © 2025 Phoenix - Escola de Inglês. Todos os direitos reservados.
+              © 2025 Phoenix, Inglês de Verdade! Todos os direitos reservados.
             </p>
           </div>
         </div>
