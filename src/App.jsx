@@ -131,7 +131,7 @@ function App() {
 
           {/* Redes Sociais - Ícones Redondos */}
           <div className="mb-8 animate-slide-up">
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-[320px] sm:max-w-none mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-[240px] sm:max-w-none mx-auto">
               {socialLinksMemo.map((social) => {
                 const IconComponent = social.icon
                 return (
