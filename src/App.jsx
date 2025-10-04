@@ -7,7 +7,7 @@ import {
   Globe
 } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
-import PartnerModal from './components/PartnerModal'
+import PartnerModal from 'components/PartnerModal'
 
 // Custom TikTok Icon Component
 const TikTokIcon = ({ className }) => (
