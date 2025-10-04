@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState, useCallback } from 'react'
 import {
   Instagram,
   Facebook,
@@ -7,6 +7,7 @@ import {
   Globe
 } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
+import PartnerModal from './components/PartnerModal'
 
 // Custom TikTok Icon Component
 const TikTokIcon = ({ className }) => (
@@ -16,6 +17,9 @@ const TikTokIcon = ({ className }) => (
 )
 
 function App() {
+  const [selectedPartner, setSelectedPartner] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const socialLinks = [
     { 
       name: 'Landing Page', 
@@ -54,63 +58,143 @@ function App() {
     },
   ]
 
-  const sponsors = [
-    { name: 'Patrocinador 1', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+1' },
-    { name: 'Patrocinador 2', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+2' },
-    { name: 'Patrocinador 3', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+3' },
-    { name: 'Patrocinador 4', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+4' },
-    { name: 'Patrocinador 5', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+5' },
-    { name: 'Patrocinador 6', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+6' },
-    { name: 'Patrocinador 7', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+7' },
-    { name: 'Patrocinador 8', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+8' },
-    { name: 'Patrocinador 9', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+9' },
-    { name: 'Patrocinador 10', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+10' },
-    { name: 'Patrocinador 11', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+11' },
-    { name: 'Patrocinador 12', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+12' },
-    { name: 'Patrocinador 13', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+13' },
-    { name: 'Patrocinador 14', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+14' },
-    { name: 'Patrocinador 15', logo: 'https://via.placeholder.com/150x80/1a1a1a/ffffff?text=Patrocinador+15' },
+  const partners = [
+    {
+      id: 1,
+      name: 'UniCesumar',
+      logo: '/assets/parceiros-phoenix/unicesumar.jpg',
+      benefits: 'Bolsa de estudos com **50% de desconto** durante **toda a graduação**.',
+      instagram: 'https://www.instagram.com/polo_unicesumar_pedreiras',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
+      address: 'Av. Rio Branco, Nº 737 - Centro, Pedreiras - MA'
+    },
+
+    {
+      id: 2,
+      name: 'Instituto IESP',
+      logo: '/assets/parceiros-phoenix/instituto-IESP.jpg',
+      benefits: 'Bolsa de estudos de **50% de desconto** no curso de **Informática**.',
+      instagram: 'https://www.instagram.com/iespeducacaosocial/',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
+      address: 'Av. Rio Branco, Nº 737 - Centro, Pedreiras - MA'
+    },
+
+    {
+      id: 3,
+      name: 'Academia Hardcore',
+      logo: '/assets/parceiros-phoenix/academia-hardcore.jpg',
+      benefits: [
+        '**6% de desconto** em compras **à vista** (em espécie) acima de **R$100,00**.',
+        'Pagamentos no cartão: preço normal à vista, com parcelamento em **até 4x sem juros**.',
+        'Nas compras a partir de **R$400,00**: ganhe **2 meses grátis** na academia, com **avaliação física gratuita** e **treino periodizado personalizado**.',
+      ],
+      observation: '* Válido apenas para novos alunos (não se aplica a quem já é cliente da Academia Hardcore).',
+      instagram: 'https://www.instagram.com/acd.hardcore/',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
+      address: 'R. Santo Antônio dos Oliveiras, Nº 179, Trizidela do Vale - MA'
+    },
+
+    {
+      id: 4,
+      name: 'Cine Inter',
+      logo: '/assets/parceiros-phoenix/cine-inter.jpg',
+      benefits: '**Meia-entrada garantida** para portadores do **Phoenix Card**.',
+      instagram: 'https://www.instagram.com/cineinter_pedreiras',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55981705216',
+      address: 'Rod. João do Vale - Center Valley Shopping, Pedreiras - MA'
+    },
+
+    {
+      id: 5,
+      name: 'Star Kids',
+      logo: '/assets/parceiros-phoenix/star-kids.jpg',
+      benefits: 'Desconto de **10%** em **festas de aniversário**.',
+      instagram: 'https://www.instagram.com/starkidspedreiras',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5598984036507',
+      address: 'Rod. João do Vale - Center Valley Shopping, Pedreiras - MA'
+    },
+
+    {
+      id: 6,
+      name: 'Farmácia Qualifarma',
+      logo: '/assets/parceiros-phoenix/farmacia-qualifarma.jpg',
+      benefits: '**10% de desconto** em **medicamentos**.',
+      instagram: 'https://www.instagram.com/qualifarma.perfil',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55984807194',
+      address: 'R. da Salvação, Nº 485 - Centro, Trizidela do Vale - MA'
+    },
+
+    { 
+      id: 7,
+      name: 'Multi Peças', 
+      logo: '/assets/parceiros-phoenix/multi-peças.jpg',
+      benefits: [
+        '**10% de desconto** **à vista** em serviços e produtos.',
+        '**Serviços gratuitos**: calibragem dos pneus, regulagem de freio, lubrificação e aperto da corrente.',
+      ],
+      instagram: null,
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55988485344',
+      address: 'R. da Salvação, Nº 607 - Centro, Trizidela do Vale - MA'
+    },
+    { 
+      id: 8,
+      name: 'Dormitório Santo Antônio', 
+      logo: '/assets/parceiros-phoenix/dormitório-s-antônio.png',
+      benefits: '**6% de desconto** **à vista** em **hospedagens**.',
+      instagram: 'https://www.instagram.com/dormitoriosantoantonio',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599988485333',
+      address: 'R. da Salvação, 485A - Centro, Trizidela do Vale - MA'
+    },
+    { 
+      id: 9,
+      name: 'Espaço Prime', 
+      logo: '/assets/parceiros-phoenix/espaço-prime.jpg',
+      benefits: '**10% de desconto** no **aluguel do espaço**.',
+      instagram: 'https://www.instagram.com/espacoprimeped',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981124331',
+      address: 'R. 1, Nº 192 - Mutirão, Pedreiras - MA'
+    },
+    { 
+      id: 10,
+      name: 'Novo Parceiro 4', 
+      logo: 'https://via.placeholder.com/150x150/1a1a1a/ffffff?text=Em+Breve',
+      benefits: 'Benefícios exclusivos em breve!',
+      instagram: null,
+      whatsapp: null,
+      address: null
+    },
   ]
 
-  // Memoizar as redes sociais para evitar re-renders
+  const handlePartnerClick = useCallback((partner) => {
+    setSelectedPartner(partner)
+    setIsModalOpen(true)
+  }, [])
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false)
+    setSelectedPartner(null)
+  }, [])
+
+  // Memoizar as redes sociais e parceiros para evitar re-renders
   const socialLinksMemo = useMemo(() => socialLinks, [])
+  const partnersMemo = useMemo(() => partners, [])
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background with starry sky */}
-      <div className="fixed inset-0 bg-gradient-to-b from-black via-zinc-950 to-black">
-        {/* Stars layer 1 - small stars */}
-        <div className="absolute inset-0 opacity-60" style={{
-          backgroundImage: `radial-gradient(2px 2px at 20% 30%, white, transparent),
-                           radial-gradient(2px 2px at 60% 70%, white, transparent),
-                           radial-gradient(1px 1px at 50% 50%, white, transparent),
-                           radial-gradient(1px 1px at 80% 10%, white, transparent),
-                           radial-gradient(2px 2px at 90% 60%, white, transparent),
-                           radial-gradient(1px 1px at 33% 80%, white, transparent),
-                           radial-gradient(1px 1px at 15% 90%, white, transparent)`,
-          backgroundSize: '200px 200px, 300px 300px, 250px 250px, 400px 400px, 350px 350px, 280px 280px, 320px 320px',
-          backgroundPosition: '0 0, 40px 60px, 130px 270px, 70px 100px, 200px 150px, 300px 50px, 150px 200px'
-        }}></div>
-        
-        {/* Stars layer 2 - medium stars */}
-        <div className="absolute inset-0 opacity-40" style={{
-          backgroundImage: `radial-gradient(3px 3px at 10% 20%, rgba(255,255,255,0.8), transparent),
-                           radial-gradient(2px 2px at 70% 40%, rgba(255,255,255,0.8), transparent),
-                           radial-gradient(2px 2px at 40% 60%, rgba(255,255,255,0.8), transparent),
-                           radial-gradient(3px 3px at 85% 80%, rgba(255,255,255,0.8), transparent)`,
-          backgroundSize: '400px 400px, 350px 350px, 450px 450px, 380px 380px',
-          backgroundPosition: '50px 50px, 180px 100px, 250px 250px, 100px 300px'
-        }}></div>
-        
-        {/* Stars layer 3 - twinkling effect */}
-        <div className="absolute inset-0 opacity-30 animate-pulse" style={{
-          backgroundImage: `radial-gradient(1px 1px at 25% 15%, white, transparent),
-                           radial-gradient(2px 2px at 75% 85%, white, transparent),
-                           radial-gradient(1px 1px at 45% 45%, white, transparent)`,
-          backgroundSize: '300px 300px, 400px 400px, 350px 350px',
-          backgroundPosition: '0 0, 100px 100px, 200px 50px',
-          animationDuration: '3s'
-        }}></div>
+      {/* Background from assets */}
+      <div className="fixed inset-0">
+        {/* Image layer */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/assets/fundo.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        {/* Overlay for readability (darker) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-zinc-950/80 to-black/95"></div>
       </div>
 
       {/* Content */}
@@ -123,7 +207,7 @@ function App() {
               <img 
                 src="https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/logo-vertical.png" 
                 alt="Phoenix Logo" 
-                className="h-40 sm:h-48 object-contain"
+                className="h-28 sm:h-32 object-contain"
               />
             </div>
             <div className="mt-1 h-1 w-20 mx-auto bg-gradient-to-r from-transparent via-[#a70240] to-transparent mb-4"></div>
@@ -152,23 +236,30 @@ function App() {
 
           {/* Sponsors Section */}
           <div className="animate-slide-up">
-            <h2 className="text-center text-sm tracking-wider text-gray-500 mb-6 font-semibold">
-            Aproveite os descontos exclusivos que a Phoenix oferece com seus parceiros
+            <h2 className="text-center text-sm tracking-wider text-white mb-6 font-semibold">
+            Conheça os benefícios exclusivos que os parceiros da Phoenix prepararam para você.
             </h2>
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
-              {sponsors.map((sponsor, index) => (
-                <div
-                  key={index}
-                  className="group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+            <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-3">
+              {partnersMemo.map((partner) => (
+                <button
+                  key={partner.id}
+                  onClick={(e) => { handlePartnerClick(partner); e.currentTarget.blur(); }}
+                  className="group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm hover:scale-105 hover:bg-zinc-800/40 hover:border-[#a70240]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a70240]/50 cursor-pointer touch-manipulation"
                 >
-                  <div className="relative aspect-video flex items-center justify-center p-3">
+                  <div className="relative aspect-[4/3] flex items-center justify-center p-0">
                     <img
-                      src={sponsor.logo}
-                      alt={sponsor.name}
-                      className="max-w-full max-h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 filter grayscale group-hover:grayscale-0"
                     />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 rounded-xl"></div>
+                    {/* Partner name on hover */}
+                    <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium opacity-0 group-hover:opacity-100 text-center">
+                      {partner.name}
+                    </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -181,6 +272,13 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Partner Modal */}
+      <PartnerModal
+        partner={selectedPartner}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </div>
   )
 }
