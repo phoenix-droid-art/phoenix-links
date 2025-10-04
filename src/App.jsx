@@ -187,7 +187,7 @@ function App() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/assets/fundo.jpg')",
+            backgroundImage: "url('https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/fundo.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
