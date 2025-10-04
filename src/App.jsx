@@ -6,7 +6,7 @@ import {
   Youtube,
   Globe
 } from 'lucide-react'
-import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
+import { FaWhatsapp } from 'react-icons/fa';
 import PartnerModal from './components/PartnerModal.jsx'
 
 // Custom TikTok Icon Component
@@ -62,7 +62,7 @@ function App() {
     {
       id: 1,
       name: 'UniCesumar',
-      logo: '/assets/parceiros-phoenix/unicesumar.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/unicesumar.jpg',
       benefits: 'Bolsa de estudos com **50% de desconto** durante **toda a graduação**.',
       instagram: 'https://www.instagram.com/polo_unicesumar_pedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
@@ -72,7 +72,7 @@ function App() {
     {
       id: 2,
       name: 'Instituto IESP',
-      logo: '/assets/parceiros-phoenix/instituto-IESP.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/instituto-IESP.jpg',
       benefits: 'Bolsa de estudos de **50% de desconto** no curso de **Informática**.',
       instagram: 'https://www.instagram.com/iespeducacaosocial/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
@@ -82,7 +82,7 @@ function App() {
     {
       id: 3,
       name: 'Academia Hardcore',
-      logo: '/assets/parceiros-phoenix/academia-hardcore.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/academia-hardcore.jpg',
       benefits: [
         '**6% de desconto** em compras **à vista** (em espécie) acima de **R$100,00**.',
         'Pagamentos no cartão: preço normal à vista, com parcelamento em **até 4x sem juros**.',
@@ -97,7 +97,7 @@ function App() {
     {
       id: 4,
       name: 'Cine Inter',
-      logo: '/assets/parceiros-phoenix/cine-inter.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/cine-inter.jpg',
       benefits: '**Meia-entrada garantida** para portadores do **Phoenix Card**.',
       instagram: 'https://www.instagram.com/cineinter_pedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55981705216',
@@ -107,7 +107,7 @@ function App() {
     {
       id: 5,
       name: 'Star Kids',
-      logo: '/assets/parceiros-phoenix/star-kids.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/star-kids.jpg',
       benefits: 'Desconto de **10%** em **festas de aniversário**.',
       instagram: 'https://www.instagram.com/starkidspedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5598984036507',
@@ -117,7 +117,7 @@ function App() {
     {
       id: 6,
       name: 'Farmácia Qualifarma',
-      logo: '/assets/parceiros-phoenix/farmacia-qualifarma.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/farmacia-qualifarma.jpg',
       benefits: '**10% de desconto** em **medicamentos**.',
       instagram: 'https://www.instagram.com/qualifarma.perfil',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55984807194',
@@ -127,7 +127,7 @@ function App() {
     { 
       id: 7,
       name: 'Multi Peças', 
-      logo: '/assets/parceiros-phoenix/multi-peças.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multi-pe%C3%A7as.jpg',
       benefits: [
         '**10% de desconto** **à vista** em serviços e produtos.',
         '**Serviços gratuitos**: calibragem dos pneus, regulagem de freio, lubrificação e aperto da corrente.',
@@ -139,7 +139,7 @@ function App() {
     { 
       id: 8,
       name: 'Dormitório Santo Antônio', 
-      logo: '/assets/parceiros-phoenix/dormitório-s-antônio.png',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/dormit%C3%B3rio-s-ant%C3%B4nio.png',
       benefits: '**6% de desconto** **à vista** em **hospedagens**.',
       instagram: 'https://www.instagram.com/dormitoriosantoantonio',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599988485333',
@@ -148,7 +148,7 @@ function App() {
     { 
       id: 9,
       name: 'Espaço Prime', 
-      logo: '/assets/parceiros-phoenix/espaço-prime.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/espa%C3%A7o-prime.jpg',
       benefits: '**10% de desconto** no **aluguel do espaço**.',
       instagram: 'https://www.instagram.com/espacoprimeped',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981124331',
