@@ -194,7 +194,7 @@ function App() {
           }}
         ></div>
         {/* Overlay for readability (darker) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-zinc-950/60 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-zinc-950/70 to-black/80"></div>
       </div>
 
       {/* Content */}
