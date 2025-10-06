@@ -173,17 +173,6 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
             </div>
           )}
         </div>
-
-        {/* Sticky Bottom Close (mobile) */}
-        <div className="sticky bottom-0 bg-zinc-900/95 backdrop-blur-sm border-t border-zinc-700 p-4 sm:hidden">
-          <button
-            onClick={onClose}
-            className="w-full py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-medium transition-colors"
-            aria-label="Fechar"
-          >
-            Fechar
-          </button>
-        </div>
       </div>
     </div>
   )
