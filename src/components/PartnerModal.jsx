@@ -4,9 +4,6 @@ import { FaWhatsapp } from 'react-icons/fa'
 
 const PartnerModal = ({ partner, isOpen, onClose }) => {
   // All hooks must be at the top, before any conditional returns
-  const panelRef = useRef(null)
-  const touchStartY = useRef(null)
-  const touchCurrentY = useRef(null)
 
   useEffect(() => {
     if (isOpen) {
@@ -29,31 +26,6 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
     if (e.key === 'Escape') onClose()
   }
 
-  const handleTouchStart = (e) => {
-    touchStartY.current = e.touches[0].clientY
-    touchCurrentY.current = null
-  }
-
-  const handleTouchMove = (e) => {
-    if (touchStartY.current == null) return
-    touchCurrentY.current = e.touches[0].clientY
-    const diff = touchCurrentY.current - touchStartY.current
-    if (diff > 0 && panelRef.current) {
-      panelRef.current.style.transition = 'none'
-      panelRef.current.style.transform = `translateY(${Math.min(diff, 100)}px)`
-    }
-  }
-
-  const handleTouchEnd = () => {
-    const diff = (touchCurrentY.current ?? 0) - (touchStartY.current ?? 0)
-    if (panelRef.current) {
-      panelRef.current.style.transition = ''
-      panelRef.current.style.transform = ''
-    }
-    touchStartY.current = null
-    touchCurrentY.current = null
-    if (diff > 80) onClose()
-  }
 
   return (
     <div 
@@ -63,16 +35,12 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
       role="presentation"
     >
       <div 
-        ref={panelRef}
         className="relative w-full max-w-md mx-auto bg-zinc-900/95 backdrop-blur-xl border border-zinc-700 rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col"
         role="dialog"
         aria-modal="true"
         aria-labelledby="partner-modal-title"
         tabIndex={-1}
         autoFocus
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         {/* Close Button */}
         <button
@@ -85,8 +53,6 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
 
         {/* Header with Logo */}
         <div className="relative p-6 pb-3">
-          {/* Drag handle for mobile */}
-          <div className="absolute left-1/2 -translate-x-1/2 -top-2 sm:hidden w-12 h-1.5 rounded-full bg-zinc-600/70" />
           <div className="flex items-center justify-center mb-4">
             <div className="w-32 h-24 rounded-xl bg-white/10 backdrop-blur-sm border border-zinc-600 flex items-center justify-center p-0 shadow-lg overflow-hidden">
               <img
