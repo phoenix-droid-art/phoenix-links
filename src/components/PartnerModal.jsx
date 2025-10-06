@@ -1,8 +1,13 @@
-import { useState, useEffect, memo } from 'react'
+import { useEffect, useRef, memo } from 'react'
 import { X, Instagram, MapPin } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const PartnerModal = ({ partner, isOpen, onClose }) => {
+  // All hooks must be at the top, before any conditional returns
+  const panelRef = useRef(null)
+  const touchStartY = useRef(null)
+  const touchCurrentY = useRef(null)
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -19,24 +24,69 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
     }
   }
 
+  // Accessibility: close on Escape
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') onClose()
+  }
+
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY
+    touchCurrentY.current = null
+  }
+
+  const handleTouchMove = (e) => {
+    if (touchStartY.current == null) return
+    touchCurrentY.current = e.touches[0].clientY
+    const diff = touchCurrentY.current - touchStartY.current
+    if (diff > 0 && panelRef.current) {
+      panelRef.current.style.transition = 'none'
+      panelRef.current.style.transform = `translateY(${Math.min(diff, 100)}px)`
+    }
+  }
+
+  const handleTouchEnd = () => {
+    const diff = (touchCurrentY.current ?? 0) - (touchStartY.current ?? 0)
+    if (panelRef.current) {
+      panelRef.current.style.transition = ''
+      panelRef.current.style.transform = ''
+    }
+    touchStartY.current = null
+    touchCurrentY.current = null
+    if (diff > 80) onClose()
+  }
+
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
       onClick={handleBackdropClick}
+      onKeyDown={handleKeyDown}
+      role="presentation"
     >
       <div 
-        className="relative w-full max-w-md mx-auto bg-zinc-900/95 backdrop-blur-xl border border-zinc-700 rounded-2xl shadow-2xl"
+        ref={panelRef}
+        className="relative w-full max-w-md mx-auto bg-zinc-900/95 backdrop-blur-xl border border-zinc-700 rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="partner-modal-title"
+        tabIndex={-1}
+        autoFocus
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-zinc-800/80 hover:bg-zinc-700 transition-colors duration-150 flex items-center justify-center group"
+          className="absolute top-4 right-4 z-10 w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-zinc-800/80 hover:bg-zinc-700 transition-colors duration-150 flex items-center justify-center group touch-manipulation"
+          aria-label="Fechar"
         >
-          <X className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+          <X className="w-5 h-5 sm:w-4 sm:h-4 text-gray-300 group-hover:text-white transition-colors" />
         </button>
 
         {/* Header with Logo */}
-        <div className="relative p-6 pb-4">
+        <div className="relative p-6 pb-3">
+          {/* Drag handle for mobile */}
+          <div className="absolute left-1/2 -translate-x-1/2 -top-2 sm:hidden w-12 h-1.5 rounded-full bg-zinc-600/70" />
           <div className="flex items-center justify-center mb-4">
             <div className="w-32 h-24 rounded-xl bg-white/10 backdrop-blur-sm border border-zinc-600 flex items-center justify-center p-0 shadow-lg overflow-hidden">
               <img
@@ -46,14 +96,14 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
               />
             </div>
           </div>
-          <h2 className="text-xl font-bold text-white text-center mb-2">
+          <h2 id="partner-modal-title" className="text-xl font-bold text-white text-center mb-2">
             {partner.name}
           </h2>
           <div className="h-px bg-gradient-to-r from-transparent via-[#a70240] to-transparent"></div>
         </div>
 
         {/* Content */}
-        <div className="px-6 pb-6 space-y-4">
+        <div className="px-6 pb-4 space-y-4 overflow-y-auto flex-1 overscroll-contain">
           {/* Benefits */}
           {partner.benefits && (
             <div>
@@ -122,6 +172,17 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
               </div>
             </div>
           )}
+        </div>
+
+        {/* Sticky Bottom Close (mobile) */}
+        <div className="sticky bottom-0 bg-zinc-900/95 backdrop-blur-sm border-t border-zinc-700 p-4 sm:hidden">
+          <button
+            onClick={onClose}
+            className="w-full py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-medium transition-colors"
+            aria-label="Fechar"
+          >
+            Fechar
+          </button>
         </div>
       </div>
     </div>
