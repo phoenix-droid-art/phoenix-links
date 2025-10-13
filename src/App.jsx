@@ -212,7 +212,7 @@ function App() {
       name: 'Frango ao Vinho',
       category: 'food', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/galeteria-frango-ao-vinho.jpg',
-      benefits: '**10% de desconto** no **aluguel do espaço**.',
+      benefits: '',
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
@@ -231,7 +231,7 @@ function App() {
       id: 14,
       name: 'MultiPro Serviços',
       category: 'services', 
-      logo: './assets/parceiros-phoenix/recar-tur.jpg',
+      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
       benefits: '**10% de desconto** em **todos os serviços**.',
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55',
