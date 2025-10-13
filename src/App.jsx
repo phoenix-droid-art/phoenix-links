@@ -212,7 +212,7 @@ function App() {
       name: 'Frango ao Vinho',
       category: 'food', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/galeteria-frango-ao-vinho.jpg',
-      benefits: '',
+      benefits: '**10% de desconto** no **aluguel do espaço**.',
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
@@ -232,13 +232,12 @@ function App() {
       name: 'MultiPro Serviços',
       category: 'services', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
-      benefits: `**Serviços práticos e confiáveis para o seu dia a dia:**\n\n
-    ### Taxista\n
-    Transporte seguro e confortável para você e sua família.\n\n
-    ### Moto-Táxi\n
-    Rápido e econômico, a opção certa para quem tem pressa.\n\n
-    ### Eletricista\n
-    Soluções elétricas seguras e eficientes para sua casa.`,
+      benefits: [
+        { title: 'Serviços práticos e confiáveis para o seu dia a dia' },
+        { title: 'Taxista', description: 'Transporte seguro e confortável para você e sua família.' },
+        { title: 'Moto-Táxi', description: 'Rápido e econômico, a opção certa para quem tem pressa.' },
+        { title: 'Eletricista', description: 'Soluções elétricas seguras e eficientes para sua casa.' },
+      ],
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
