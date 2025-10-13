@@ -4,10 +4,20 @@ import {
   Facebook,
   Linkedin,
   Youtube,
-  Globe
+  Globe,
+  LayoutGrid,
+  GraduationCap,
+  Heart,
+  Gamepad2,
+  Wrench,
+  Utensils,
+  ShoppingBag,
+  Car,
+  Home,
+  Plane
 } from 'lucide-react'
-import { FaWhatsapp } from 'react-icons/fa';
-import PartnerModal from './components/PartnerModal.jsx'
+import { FaWhatsapp } from 'react-icons/fa'; // Ícone do WhatsApp
+import PartnerModal from './components/PartnerModal'
 
 // Custom TikTok Icon Component
 const TikTokIcon = ({ className }) => (
@@ -19,6 +29,7 @@ const TikTokIcon = ({ className }) => (
 function App() {
   const [selectedPartner, setSelectedPartner] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('all')
 
   const socialLinks = [
     { 
@@ -58,30 +69,46 @@ function App() {
     },
   ]
 
+  const categories = [
+    { id: 'all', name: 'Todos', icon: LayoutGrid },
+    { id: 'education', name: 'Educação', icon: GraduationCap },
+    { id: 'health', name: 'Saúde & Bem-estar', icon: Heart },
+    { id: 'entertainment', name: 'Entretenimento', icon: Gamepad2 },
+    { id: 'services', name: 'Serviços', icon: Wrench },
+    { id: 'food', name: 'Alimentação', icon: Utensils },
+    { id: 'shopping', name: 'Compras', icon: ShoppingBag },
+    { id: 'automotive', name: 'Automotivo', icon: Car },
+    { id: 'accommodation', name: 'Hospedagem', icon: Home },
+    { id: 'travel', name: 'Viagens & Turismo', icon: Plane }
+  ]
+
   const partners = [
     {
       id: 1,
       name: 'UniCesumar',
+      category: 'education',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/unicesumar.jpg',
       benefits: 'Bolsa de estudos com **50% de desconto** durante **toda a graduação**.',
       instagram: 'https://www.instagram.com/polo_unicesumar_pedreiras',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599984019987',
       address: 'Av. Rio Branco, Nº 737 - Centro, Pedreiras - MA'
     },
 
     {
       id: 2,
       name: 'Instituto IESP',
+      category: 'education',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/instituto-IESP.jpg',
       benefits: 'Bolsa de estudos de **50% de desconto** no curso de **Informática**.',
       instagram: 'https://www.instagram.com/iespeducacaosocial/',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599984019987',
       address: 'Av. Rio Branco, Nº 737 - Centro, Pedreiras - MA'
     },
 
     {
       id: 3,
       name: 'Academia Hardcore',
+      category: 'health',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/academia-hardcore.jpg',
       benefits: [
         '**6% de desconto** em compras **à vista** (em espécie) acima de **R$100,00**.',
@@ -97,6 +124,7 @@ function App() {
     {
       id: 4,
       name: 'Cine Inter',
+      category: 'entertainment',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/cine-inter.jpg',
       benefits: '**Meia-entrada garantida** para portadores do **Phoenix Card**.',
       instagram: 'https://www.instagram.com/cineinter_pedreiras',
@@ -107,6 +135,7 @@ function App() {
     {
       id: 5,
       name: 'Star Kids',
+      category: 'entertainment',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/star-kids.jpg',
       benefits: 'Desconto de **10%** em **festas de aniversário**.',
       instagram: 'https://www.instagram.com/starkidspedreiras',
@@ -117,6 +146,7 @@ function App() {
     {
       id: 6,
       name: 'Farmácia Qualifarma',
+      category: 'health',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/farmacia-qualifarma.jpg',
       benefits: '**10% de desconto** em **medicamentos**.',
       instagram: 'https://www.instagram.com/qualifarma.perfil',
@@ -126,7 +156,8 @@ function App() {
 
     { 
       id: 7,
-      name: 'Multi Peças', 
+      name: 'Multi Peças',
+      category: 'automotive', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multi-pe%C3%A7as.jpg',
       benefits: [
         '**10% de desconto** **à vista** em serviços e produtos.',
@@ -138,7 +169,8 @@ function App() {
     },
     { 
       id: 8,
-      name: 'Dormitório Santo Antônio', 
+      name: 'Dormitório Santo Antônio',
+      category: 'accommodation', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/dormit%C3%B3rio-s-ant%C3%B4nio.png',
       benefits: '**6% de desconto** **à vista** em **hospedagens**.',
       instagram: 'https://www.instagram.com/dormitoriosantoantonio',
@@ -147,7 +179,8 @@ function App() {
     },
     { 
       id: 9,
-      name: 'Espaço Prime', 
+      name: 'Espaço Prime',
+      category: 'entertainment', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/espa%C3%A7o-prime.jpg',
       benefits: '**10% de desconto** no **aluguel do espaço**.',
       instagram: 'https://www.instagram.com/espacoprimeped',
@@ -156,12 +189,53 @@ function App() {
     },
     { 
       id: 10,
-      name: 'Novo Parceiro 4', 
-      logo: 'https://via.placeholder.com/150x150/1a1a1a/ffffff?text=Em+Breve',
-      benefits: 'Benefícios exclusivos em breve!',
-      instagram: null,
-      whatsapp: null,
-      address: null
+      name: 'Bella Store',
+      category: 'shopping', 
+      logo: './assets/parceiros-phoenix/bella-store.jpg',
+      benefits: '**15% de desconto** em **todas as compras**.',
+      instagram: 'https://www.instagram.com/usebelastore_pedreiras',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981562255',
+      address: 'R. Eurico Ribeiro, N° 437 - Centro, Pedreiras - MA'
+    },
+    { 
+      id: 11,
+      name: 'Mart Modas',
+      category: 'shopping', 
+      logo: './assets/parceiros-phoenix/mart-modas.jpg',
+      benefits: '**10% de desconto** em **todas as compras**.',
+      instagram: 'https://www.instagram.com/martmodas',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=',
+      address: 'R. Eurico Ribeiro, N° 437 - Centro, Pedreiras - MA'
+    },
+    { 
+      id: 12,
+      name: 'Frango ao Vinho',
+      category: 'food', 
+      logo: './assets/parceiros-phoenix/galeteria-frango-ao-vinho.jpg',
+      benefits: '**10% de desconto** no **aluguel do espaço**.',
+      instagram: 'https://www.instagram.com/',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
+      address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
+    },
+    { 
+      id: 13,
+      name: 'Recar-Tur',
+      category: 'travel', 
+      logo: './assets/parceiros-phoenix/recar-tur.jpg',
+      benefits: '',
+      instagram: 'https://www.instagram.com/',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55',
+      address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
+    },
+    { 
+      id: 14,
+      name: 'MultiPro Serviços',
+      category: 'services', 
+      logo: './assets/parceiros-phoenix/recar-tur.jpg',
+      benefits: '**10% de desconto** em **todos os serviços**.',
+      instagram: 'https://www.instagram.com/',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55',
+      address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
     },
   ]
 
@@ -175,9 +249,15 @@ function App() {
     setSelectedPartner(null)
   }, [])
 
-  // Memoizar as redes sociais e parceiros para evitar re-renders
+  // Filtrar parceiros por categoria
+  const filteredPartners = useMemo(() => {
+    if (selectedCategory === 'all') return partners
+    return partners.filter(partner => partner.category === selectedCategory)
+  }, [selectedCategory])
+
+  // Memoizar as redes sociais para evitar re-renders
   const socialLinksMemo = useMemo(() => socialLinks, [])
-  const partnersMemo = useMemo(() => partners, [])
+  const categoriesMemo = useMemo(() => categories, [])
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -194,7 +274,7 @@ function App() {
           }}
         ></div>
         {/* Overlay for readability (darker) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-zinc-950/70 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-zinc-950/80 to-black/95"></div>
       </div>
 
       {/* Content */}
@@ -237,31 +317,58 @@ function App() {
           {/* Sponsors Section */}
           <div className="animate-slide-up">
             <h2 className="text-center text-sm tracking-wider text-white mb-6 font-semibold">
-            Conheça os benefícios exclusivos que os parceiros da Phoenix prepararam para&nbsp;você.
+              Conheça os benefícios exclusivos que os parceiros da Phoenix prepararam para&nbsp;você.
             </h2>
-            <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-3">
-              {partnersMemo.map((partner) => (
+            
+            {/* Category Filter */}
+            <div className="mb-6">
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-lg mx-auto">
+                {categoriesMemo.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`category-button px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border backdrop-blur-sm flex items-center gap-1.5 ${
+                      selectedCategory === category.id
+                        ? 'bg-[#a70240] border-[#a70240] text-white shadow-lg shadow-[#a70240]/30'
+                        : 'bg-zinc-900/50 border-zinc-700 text-gray-300 hover:bg-zinc-800/60 hover:border-zinc-600 hover:text-white'
+                    }`}
+                  >
+                    <category.icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Partners Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {filteredPartners.map((partner) => (
                 <button
                   key={partner.id}
                   onClick={(e) => { handlePartnerClick(partner); e.currentTarget.blur(); }}
-                  className="group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm hover:scale-105 hover:bg-zinc-800/40 hover:border-[#a70240]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a70240]/50 cursor-pointer touch-manipulation"
+                  className="partner-card group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-zinc-800/40 hover:border-[#a70240]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a70240]/50 cursor-pointer touch-manipulation"
                 >
                   <div className="relative aspect-[4/3] flex items-center justify-center p-0">
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 filter grayscale group-hover:grayscale-0"
+                      className="partner-logo max-w-full max-h-full object-contain opacity-70 filter grayscale transition-all duration-300"
                     />
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 rounded-xl"></div>
-                    {/* Partner name on hover */}
-                    <div className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium opacity-0 group-hover:opacity-100 text-center">
-                      {partner.name}
-                    </div>
+                    {/* Hover overlay - only on desktop */}
+                    <div className="partner-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 rounded-xl"></div>
                   </div>
                 </button>
               ))}
             </div>
+            
+            {/* Empty state */}
+            {filteredPartners.length === 0 && (
+              <div className="text-center py-8">
+                <p className="text-gray-400 text-sm">
+                  Nenhum parceiro encontrado nesta categoria.
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Footer */}
