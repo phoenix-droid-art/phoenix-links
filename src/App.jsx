@@ -232,7 +232,10 @@ function App() {
       name: 'MultiPro Serviços',
       category: 'services', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
-      benefits: '**10% de desconto** em **todos os serviços**.',
+        benefits: `**Serviços práticos e confiáveis para o seu dia a dia:**\n\n
+**Taxista:** transporte seguro e confortável para você e sua família.\n
+**Moto-Táxi:** rápido e econômico, a opção certa para quem tem pressa.\n
+**Eletricista:** soluções elétricas seguras e eficientes para sua casa.`,
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
