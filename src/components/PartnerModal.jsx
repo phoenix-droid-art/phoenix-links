@@ -77,13 +77,38 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
                 Benefícios Exclusivos
               </h3>
               {Array.isArray(partner.benefits) ? (
-                <ul className="list-disc list-inside text-gray-300 text-sm leading-relaxed space-y-1">
-                  {partner.benefits.map((item, idx) => (
-                    <li key={idx} dangerouslySetInnerHTML={{
-                      __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    }} />
-                  ))}
-                </ul>
+                <div className="space-y-3">
+                  {partner.benefits.map((item, idx) => {
+                    if (typeof item === 'string') {
+                      return (
+                        <ul key={idx} className="list-disc list-inside text-gray-300 text-sm leading-relaxed">
+                          <li
+                            dangerouslySetInnerHTML={{
+                              __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                            }}
+                          />
+                        </ul>
+                      )
+                    }
+                    if (item && typeof item === 'object') {
+                      return (
+                        <div key={idx} className="bg-zinc-800/40 border border-zinc-700 rounded-lg p-3">
+                          {item.title && (
+                            <h4 className="text-white text-sm font-semibold mb-1">
+                              {item.title}
+                            </h4>
+                          )}
+                          {item.description && (
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                              {item.description}
+                            </p>
+                          )}
+                        </div>
+                      )
+                    }
+                    return null
+                  })}
+                </div>
               ) : (
                 <p className="text-gray-300 text-sm leading-relaxed" dangerouslySetInnerHTML={{
                   __html: partner.benefits.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
