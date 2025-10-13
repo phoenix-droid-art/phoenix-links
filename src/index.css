@@ -145,5 +145,33 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
   }
+  
+  /* Disable hover effects on mobile for partner logos */
+  .partner-logo {
+    opacity: 0.85 !important;
+    filter: grayscale(0.3) !important;
+  }
+  
+  /* Ensure category buttons work well on mobile */
+  .category-button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Desktop-only hover effects */
+@media (min-width: 769px) {
+  .partner-card:hover .partner-logo {
+    opacity: 1 !important;
+    filter: grayscale(0) !important;
+  }
+  
+  .partner-card:hover .partner-overlay {
+    opacity: 1 !important;
+  }
+  
+  .partner-card:hover .partner-name {
+    opacity: 1 !important;
+  }
 }
 
