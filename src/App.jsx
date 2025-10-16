@@ -229,7 +229,7 @@ function App() {
     },
     { 
       id: 14,
-      name: 'MultiPro Serviços',
+      name: 'Multi-Pro Serviços',
       category: 'services', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
       benefits: '10% de desconto em todos os serviços.',
