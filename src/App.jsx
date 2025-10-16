@@ -111,7 +111,7 @@ function App() {
       category: 'health',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/academia-hardcore.jpg',
       benefits: [
-        '**6% de desconto** em compras **à vista** (em espécie) acima de **R$100,00**.',
+        '**6% de desconto** em compras **à vista** acima de **R$100,00**.',
         'Pagamentos no cartão: preço normal à vista, com parcelamento em **até 4x sem juros**.',
         'Nas compras a partir de **R$400,00**: ganhe **2 meses grátis** na academia, com **avaliação física gratuita** e **treino periodizado personalizado**.',
       ],
@@ -148,7 +148,7 @@ function App() {
       name: 'Farmácia Qualifarma',
       category: 'health',
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/farmacia-qualifarma.jpg',
-      benefits: '**10% de desconto** em **medicamentos**.',
+      benefits: '**10% de desconto** em todos os **medicamentos**.',
       instagram: 'https://www.instagram.com/qualifarma.perfil',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55984807194',
       address: 'R. da Salvação, Nº 485 - Centro, Trizidela do Vale - MA'
@@ -212,7 +212,7 @@ function App() {
       name: 'Frango ao Vinho',
       category: 'food', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/galeteria-frango-ao-vinho.jpg',
-      benefits: '**10% de desconto** no **aluguel do espaço**.',
+      benefits: '',
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
@@ -232,7 +232,8 @@ function App() {
       name: 'MultiPro Serviços',
       category: 'services', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
-      benefits: '**10% de desconto** em **todos os serviços**.', [
+      benefits: '10% de desconto em todos os serviços.',
+      services: [
         { title: 'Taxista', description: 'Transporte seguro e confortável para você e sua família.' },
         { title: 'Moto-Táxi', description: 'Rápido e econômico, a opção certa para quem tem pressa.' },
         { title: 'Eletricista', description: 'Soluções elétricas seguras e eficientes para sua casa.' },
