@@ -122,6 +122,29 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
             </div>
           )}
 
+          {partner.services && Array.isArray(partner.services) && partner.services.length > 0 && (
+            <div>
+              <h3 className="text-sm font-bold text-[#a70240] mb-2 uppercase tracking-wider">
+                Serviços
+              </h3>
+              <div className="space-y-3">
+                {partner.services.map((item, idx) => (
+                  <div key={idx} className="bg-zinc-800/40 border border-zinc-700 rounded-lg p-3">
+                    {item.title && (
+                      <h4 className="text-white text-sm font-semibold mb-1">
+                        {item.title}
+                      </h4>
+                    )}
+                    {item.description && (
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           {/* Social Links */}
           <div className="flex gap-3 justify-center pt-2">
             {partner.instagram && (
