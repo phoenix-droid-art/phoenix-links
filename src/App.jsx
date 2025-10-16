@@ -232,7 +232,7 @@ function App() {
       name: 'Multi-Pro Serviços',
       category: 'services', 
       logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
-      benefits: '10% de desconto em todos os serviços.',
+      benefits: '**10% de desconto** em **todos os serviços**.',
       services: [
         { title: 'Taxista', description: 'Transporte seguro e confortável para você e sua família.' },
         { title: 'Moto-Táxi', description: 'Rápido e econômico, a opção certa para quem tem pressa.' },
