@@ -292,7 +292,7 @@ function App() {
               <img 
                 src="https://i.ibb.co/d0tZ6dBr/logo-branca.png" 
                 alt="Phoenix Logo" 
-                className="h-22 sm:h-28 object-contain"
+                className="h-18 sm:h-22 object-contain"
               />
             </div>
             <div className="mt-1 h-1 w-20 mx-auto bg-gradient-to-r from-transparent via-[#a70240] to-transparent mb-4"></div>
