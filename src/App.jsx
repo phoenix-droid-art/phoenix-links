@@ -87,7 +87,7 @@ function App() {
       id: 1,
       name: 'UniCesumar',
       category: 'education',
-      logo: './assets/parceiros-phoenix/unicesumar.jpg',
+      logo: '/assets/parceiros-phoenix/unicesumar.jpg',
       benefits: 'Bolsa de estudos com **50% de desconto** durante **toda a graduação**.',
       instagram: 'https://www.instagram.com/polo_unicesumar_pedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599984019987',
