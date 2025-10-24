@@ -290,7 +290,7 @@ function App() {
           <div className="text-center mb-4 animate-fade-in">
             <div className="inline-flex items-center justify-center mb-2">
               <img 
-                src="https://linktree-phoenix.vercel.app/assets/logo-vertical.png" 
+                src="https://i.ibb.co/d0tZ6dBr/logo-branca.png" 
                 alt="Phoenix Logo" 
                 className="h-22 sm:h-28 object-contain"
               />
