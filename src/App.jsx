@@ -87,7 +87,7 @@ function App() {
       id: 1,
       name: 'UniCesumar',
       category: 'education',
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/unicesumar.jpg',
+      logo: './assets/parceiros-phoenix/unicesumar.jpg',
       benefits: 'Bolsa de estudos com **50% de desconto** durante **toda a graduação**.',
       instagram: 'https://www.instagram.com/polo_unicesumar_pedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599984019987',
@@ -98,7 +98,7 @@ function App() {
       id: 2,
       name: 'Instituto IESP',
       category: 'education',
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/instituto-IESP.jpg',
+      logo: './assets/parceiros-phoenix/instituto-IESP.jpg',
       benefits: 'Bolsa de estudos de **50% de desconto** no curso de **Informática**.',
       instagram: 'https://www.instagram.com/iespeducacaosocial/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599984019987',
@@ -109,7 +109,7 @@ function App() {
       id: 3,
       name: 'Academia Hardcore',
       category: 'health',
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/academia-hardcore.jpg',
+      logo: './assets/parceiros-phoenix/academia-hardcore.jpg',
       benefits: [
         '**6% de desconto** em compras **à vista** acima de **R$100,00**.',
         'Pagamentos no cartão: preço normal à vista, com parcelamento em **até 4x sem juros**.',
@@ -125,7 +125,7 @@ function App() {
       id: 4,
       name: 'Cine Inter',
       category: 'entertainment',
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/cine-inter.jpg',
+      logo: './assets/parceiros-phoenix/cine-inter.jpg',
       benefits: '**Meia-entrada garantida** para portadores do **Phoenix Card**.',
       instagram: 'https://www.instagram.com/cineinter_pedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55981705216',
@@ -136,7 +136,7 @@ function App() {
       id: 5,
       name: 'Star Kids',
       category: 'entertainment',
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/star-kids.jpg',
+      logo: './assets/parceiros-phoenix/star-kids.jpg',
       benefits: 'Desconto de **10%** em **festas de aniversário**.',
       instagram: 'https://www.instagram.com/starkidspedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5598984036507',
@@ -147,7 +147,7 @@ function App() {
       id: 6,
       name: 'Farmácia Qualifarma',
       category: 'health',
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/farmacia-qualifarma.jpg',
+      logo: './assets/parceiros-phoenix/farmacia-qualifarma.jpg',
       benefits: '**10% de desconto** em todos os **medicamentos**.',
       instagram: 'https://www.instagram.com/qualifarma.perfil',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55984807194',
@@ -158,7 +158,7 @@ function App() {
       id: 7,
       name: 'Multi Peças',
       category: 'automotive', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multi-pe%C3%A7as.jpg',
+      logo: './assets/parceiros-phoenix/multi-pe%C3%A7as.jpg',
       benefits: [
         '**10% de desconto** **à vista** em serviços e produtos.',
         '**Serviços gratuitos**: calibragem dos pneus, regulagem de freio, lubrificação e aperto da corrente.',
@@ -171,7 +171,7 @@ function App() {
       id: 8,
       name: 'Dormitório Santo Antônio',
       category: 'accommodation', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/dormit%C3%B3rio-s-ant%C3%B4nio.png',
+      logo: './assets/parceiros-phoenix/dormit%C3%B3rio-s-ant%C3%B4nio.png',
       benefits: '**6% de desconto** **à vista** em **hospedagens**.',
       instagram: 'https://www.instagram.com/dormitoriosantoantonio',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599988485333',
@@ -181,7 +181,7 @@ function App() {
       id: 9,
       name: 'Espaço Prime',
       category: 'entertainment', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/espa%C3%A7o-prime.jpg',
+      logo: './assets/parceiros-phoenix/espa%C3%A7o-prime.jpg',
       benefits: '**10% de desconto** no **aluguel do espaço**.',
       instagram: 'https://www.instagram.com/espacoprimeped',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981124331',
@@ -191,7 +191,7 @@ function App() {
       id: 10,
       name: 'Bella Store',
       category: 'shopping', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/bella-store.jpg',
+      logo: './assets/parceiros-phoenix/bella-store.jpg',
       benefits: '**15% de desconto** em **todas as compras**.',
       instagram: 'https://www.instagram.com/usebelastore_pedreiras',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981562255',
@@ -201,7 +201,7 @@ function App() {
       id: 11,
       name: 'Mart Modas',
       category: 'shopping', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/mart-modas.jpg',
+      logo: './assets/parceiros-phoenix/mart-modas.jpg',
       benefits: '**10% de desconto** em **todas as compras**.',
       instagram: 'https://www.instagram.com/martmodas',
       whatsapp: 'https://api.whatsapp.com/send/?phone=',
@@ -211,7 +211,7 @@ function App() {
       id: 12,
       name: 'Frango ao Vinho',
       category: 'food', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/galeteria-frango-ao-vinho.jpg',
+      logo: './assets/parceiros-phoenix/galeteria-frango-ao-vinho.jpg',
       benefits: '',
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
@@ -221,7 +221,7 @@ function App() {
       id: 13,
       name: 'Recar-Tur',
       category: 'travel', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/recar-tur.jpg',
+      logo: './assets/parceiros-phoenix/recar-tur.jpg',
       benefits: '',
       instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55',
@@ -231,7 +231,7 @@ function App() {
       id: 14,
       name: 'Multi-Pro Serviços',
       category: 'services', 
-      logo: 'https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/parceiros-phoenix/multipro-servicos.jpg',
+      logo: './assets/parceiros-phoenix/multipro-servicos.jpg',
       benefits: '**10% de desconto** em **todos os serviços**.',
       services: [
         { title: 'Taxista', description: 'Transporte seguro e confortável para você e sua família.' },
@@ -272,7 +272,7 @@ function App() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/fundo.jpg')",
+            backgroundImage: "./assets/fundo.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -290,7 +290,7 @@ function App() {
           <div className="text-center mb-4 animate-fade-in">
             <div className="inline-flex items-center justify-center mb-2">
               <img 
-                src="https://raw.githubusercontent.com/phoenix-droid-art/phoenix-links/refs/heads/main/assets/logo-vertical.png" 
+                src="./assets/logo-vertical.png" 
                 alt="Phoenix Logo" 
                 className="h-28 sm:h-32 object-contain"
               />
