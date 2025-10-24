@@ -272,7 +272,7 @@ function App() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "https://i.ibb.co/d0tZ6dBr/logo.png')",
+            backgroundImage: "https://i.ibb.co/zHSpS0r5/ceu-estrelado.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
