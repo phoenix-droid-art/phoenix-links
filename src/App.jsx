@@ -290,9 +290,9 @@ function App() {
           <div className="text-center mb-4 animate-fade-in">
             <div className="inline-flex items-center justify-center mb-2">
               <img 
-                src="./assets/logo-vertical.png" 
+                src="https://linktree-phoenix.vercel.app/assets/logo-vertical.png" 
                 alt="Phoenix Logo" 
-                className="h-28 sm:h-32 object-contain"
+                className="h-22 sm:h-28 object-contain"
               />
             </div>
             <div className="mt-1 h-1 w-20 mx-auto bg-gradient-to-r from-transparent via-[#a70240] to-transparent mb-4"></div>
