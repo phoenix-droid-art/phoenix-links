@@ -163,8 +163,7 @@ function App() {
         '**10% de desconto** **à vista** em serviços e produtos.',
         '**Serviços gratuitos**: calibragem dos pneus, regulagem de freio, lubrificação e aperto da corrente.',
       ],
-      instagram: null,
-      whatsapp: 'https://api.whatsapp.com/send/?phone=5599988485344',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599988485333',
       address: 'R. da Salvação, Nº 607 - Centro, Trizidela do Vale - MA'
     },
     { 
@@ -245,7 +244,6 @@ function App() {
         { title: 'Moto-Táxi', description: 'Rápido e econômico, a opção certa para quem tem pressa.' },
         { title: 'Eletricista', description: 'Soluções elétricas seguras e eficientes para sua casa.' },
       ],
-      instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981766558',
     },
   ]
