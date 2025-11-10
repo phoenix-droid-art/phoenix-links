@@ -234,6 +234,12 @@ function App() {
       logo: 'https://i.ibb.co/fGpgRnTf/multipro-servicos.jpg',
       benefits: '**10% de desconto** em **todos os serviços**.',
       services: [
+        { title: 'Serviços em Geral', description: [
+          'Encanamento',
+          'Limpeza domiciliar',
+          'Reparos em telhados',
+          'Instalação de quadros e suportes',
+          'Outros serviços relacionados à residência']},
         { title: 'Taxista', description: 'Transporte seguro e confortável para você e sua família.' },
         { title: 'Moto-Táxi', description: 'Rápido e econômico, a opção certa para quem tem pressa.' },
         { title: 'Eletricista', description: 'Soluções elétricas seguras e eficientes para sua casa.' },
