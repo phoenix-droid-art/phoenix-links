@@ -267,66 +267,66 @@ function App() {
   const socialLinksMemo = useMemo(() => socialLinks, [])
   const categoriesMemo = useMemo(() => categories, [])
 
-  return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background from assets */}
-      <div className="fixed inset-0">
-        {/* Image layer */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "https://i.ibb.co/zHSpS0r5/ceu-estrelado.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
-        {/* Overlay for readability (darker) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-zinc-950/80 to-black/95"></div>
-      </div>
+return (
+  <div className="min-h-screen relative overflow-hidden">
+    {/* Background from assets */}
+    <div className="fixed inset-0">
+      {/* Image layer */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url('https://i.ibb.co/zHSpS0r5/ceu-estrelado.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
+      {/* Overlay for readability (darker) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-zinc-950/80 to-black/95"></div>
+    </div>
 
-      {/* Content */}
-      <div className="relative z-10 min-h-screen py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          
-          {/* Logo Section */}
-          <div className="text-center mb-4 animate-fade-in">
-            <div className="inline-flex items-center justify-center mb-2">
-              <img 
-                src="https://i.ibb.co/d0tZ6dBr/logo-branca.png" 
-                alt="Phoenix Logo" 
-                className="h-12 sm:h-16 object-contain"
-              />
-            </div>
-            <div className="mt-1 h-1 w-20 mx-auto bg-gradient-to-r from-transparent via-[#a70240] to-transparent mb-4"></div>
+    {/* Content */}
+    <div className="relative z-10 min-h-screen py-6 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto">
+        
+        {/* Logo Section */}
+        <div className="text-center mb-4 animate-fade-in">
+          <div className="inline-flex items-center justify-center mb-2">
+            <img 
+              src="https://i.ibb.co/d0tZ6dBr/logo-branca.png" 
+              alt="Phoenix Logo" 
+              className="h-12 sm:h-16 object-contain"
+            />
           </div>
+          <div className="mt-1 h-1 w-20 mx-auto bg-gradient-to-r from-transparent via-[#a70240] to-transparent mb-4"></div>
+        </div>
 
-          {/* Redes Sociais - Ícones Redondos */}
-          <div className="mb-8 animate-slide-up">
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-[240px] sm:max-w-none mx-auto">
-              {socialLinksMemo.map((social) => {
-                const IconComponent = social.icon
-                return (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-zinc-900/80 border-2 border-zinc-700 backdrop-blur-sm hover:bg-[#a70240] hover:border-[#a70240] transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-[#a70240]/40 flex items-center justify-center"
-                    aria-label={social.name}
-                  >
-                    <IconComponent className="w-5 h-5 sm:w-5 sm:h-5 text-gray-300 group-hover:text-white transition-all duration-300 relative z-10" strokeWidth={2} />
-                  </a>
-                )
-              })}
-            </div>
+        {/* Redes Sociais - Ícones Redondos */}
+        <div className="mb-8 animate-slide-up">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-[240px] sm:max-w-none mx-auto">
+            {socialLinksMemo.map((social) => {
+              const IconComponent = social.icon
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-zinc-900/80 border-2 border-zinc-700 backdrop-blur-sm hover:bg-[#a70240] hover:border-[#a70240] transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-[#a70240]/40 flex items-center justify-center"
+                  aria-label={social.name}
+                >
+                  <IconComponent className="w-5 h-5 sm:w-5 sm:h-5 text-gray-300 group-hover:text-white transition-all duration-300 relative z-10" strokeWidth={2} />
+                </a>
+              )
+            })}
           </div>
+        </div>
 
-          {/* Sponsors Section */}
-          <div className="animate-slide-up">
-            <h2 className="text-center text-sm tracking-wider text-white mb-6 font-semibold">
-              Conheça os benefícios exclusivos que os parceiros da Phoenix prepararam para&nbsp;você.
-            </h2>
+        {/* Sponsors Section */}
+        <div className="animate-slide-up">
+          <h2 className="text-center text-sm tracking-wider text-white mb-6 font-semibold">
+            Conheça os benefícios exclusivos que os parceiros da Phoenix prepararam para&nbsp;você.
+          </h2>
             
             {/* Category Filter */}
             <div className="mb-6">
