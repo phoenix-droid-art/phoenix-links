@@ -203,7 +203,7 @@ function App() {
       logo: 'https://i.ibb.co/LXNCb2m6/mart-modas.jpg',
       benefits: '**10% de desconto** em **todas as compras**.',
       instagram: 'https://www.instagram.com/martmodas',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599985044537',
       address: 'R. Eurico Ribeiro, N° 437 - Centro, Pedreiras - MA'
     },
     { 
@@ -212,6 +212,7 @@ function App() {
       category: 'food', 
       logo: 'https://i.ibb.co/sd9Pmzf7/galeteria-frango-ao-vinho.jpg',
       benefits: '',
+      instagram: 'https://www.instagram.com/frangoaovinho.ofc',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
     },
@@ -221,7 +222,7 @@ function App() {
       category: 'travel', 
       logo: 'https://i.ibb.co/HfnmMscW/recar-tur.jpg',
       benefits: '',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=55',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981234266',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
     },
     { 
