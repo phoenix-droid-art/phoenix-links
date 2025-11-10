@@ -212,7 +212,6 @@ function App() {
       category: 'food', 
       logo: 'https://i.ibb.co/sd9Pmzf7/galeteria-frango-ao-vinho.jpg',
       benefits: '',
-      instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
     },
@@ -222,7 +221,6 @@ function App() {
       category: 'travel', 
       logo: 'https://i.ibb.co/HfnmMscW/recar-tur.jpg',
       benefits: '',
-      instagram: 'https://www.instagram.com/',
       whatsapp: 'https://api.whatsapp.com/send/?phone=55',
       address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
     },
