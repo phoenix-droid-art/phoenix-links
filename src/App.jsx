@@ -150,7 +150,7 @@ function App() {
       logo: 'https://i.ibb.co/XZgsynf0/farmacia-qualifarma.jpg',
       benefits: '**10% de desconto** em todos os **medicamentos**.',
       instagram: 'https://www.instagram.com/qualifarma.perfil',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=55984807194',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599984807194',
       address: 'R. da Salvação, Nº 485 - Centro, Trizidela do Vale - MA'
     },
 
@@ -235,6 +235,7 @@ function App() {
       benefits: '**10% de desconto** em **todos os serviços**.',
       services: [
         { title: 'Serviços em Geral', description: [
+          'Manutenções residenciais e pequenas reformas, incluindo:',
           'Encanamento',
           'Limpeza domiciliar',
           'Reparos em telhados',
