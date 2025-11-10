@@ -117,7 +117,7 @@ function App() {
       ],
       observation: '* Válido apenas para novos alunos (não se aplica a quem já é cliente da Academia Hardcore).',
       instagram: 'https://www.instagram.com/acd.hardcore/',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=5599999999999',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55',
       address: 'R. Santo Antônio dos Oliveiras, Nº 179, Trizidela do Vale - MA'
     },
 
@@ -128,7 +128,7 @@ function App() {
       logo: 'https://i.ibb.co/XZByckZH/cine-inter.jpg',
       benefits: '**Meia-entrada garantida** para portadores do **Phoenix Card**.',
       instagram: 'https://www.instagram.com/cineinter_pedreiras',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=55981705216',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981705216',
       address: 'Rod. João do Vale - Center Valley Shopping, Pedreiras - MA'
     },
 
