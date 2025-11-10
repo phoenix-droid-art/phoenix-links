@@ -136,9 +136,27 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
                       </h4>
                     )}
                     {item.description && (
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
+                      Array.isArray(item.description) ? (
+                        <>
+                          {typeof item.description[0] === 'string' && /:\s*$/.test(item.description[0]) && (
+                            <p className="text-gray-300 text-sm leading-relaxed mb-1">
+                              {item.description[0]}
+                            </p>
+                          )}
+                          <ul className="list-disc list-inside text-gray-300 text-sm leading-relaxed space-y-1">
+                            {(typeof item.description[0] === 'string' && /:\s*$/.test(item.description[0])
+                              ? item.description.slice(1)
+                              : item.description
+                            ).map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        <p className="text-gray-300 text-sm leading-relaxed">
+                          {item.description}
+                        </p>
+                      )
                     )}
                   </div>
                 ))}
