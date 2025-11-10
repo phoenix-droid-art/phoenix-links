@@ -117,7 +117,7 @@ function App() {
       ],
       observation: '* Válido apenas para novos alunos (não se aplica a quem já é cliente da Academia Hardcore).',
       instagram: 'https://www.instagram.com/acd.hardcore/',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=55',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599984585293',
       address: 'R. Santo Antônio dos Oliveiras, Nº 179, Trizidela do Vale - MA'
     },
 
@@ -164,7 +164,7 @@ function App() {
         '**Serviços gratuitos**: calibragem dos pneus, regulagem de freio, lubrificação e aperto da corrente.',
       ],
       instagram: null,
-      whatsapp: 'https://api.whatsapp.com/send/?phone=55988485344',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599988485344',
       address: 'R. da Salvação, Nº 607 - Centro, Trizidela do Vale - MA'
     },
     { 
@@ -246,8 +246,7 @@ function App() {
         { title: 'Eletricista', description: 'Soluções elétricas seguras e eficientes para sua casa.' },
       ],
       instagram: 'https://www.instagram.com/',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=55',
-      address: ''
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981766558',
     },
   ]
 
