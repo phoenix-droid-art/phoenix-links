@@ -223,7 +223,7 @@ function App() {
       logo: 'https://i.ibb.co/HfnmMscW/recar-tur.jpg',
       benefits: '',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981234266',
-      address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
+      address: 'R. Abílio Monteiro, 1359 - Engenho, Pedreiras - MA'
     },
     { 
       id: 14,
@@ -331,58 +331,100 @@ function App() {
             {/* Category Filter */}
             <div className="mb-6">
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-lg mx-auto">
-                {categoriesMemo.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`category-button px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border backdrop-blur-sm flex items-center gap-1.5 ${
-                      selectedCategory === category.id
-                        ? 'bg-[#a70240] border-[#a70240] text-white shadow-lg shadow-[#a70240]/30'
-                        : 'bg-zinc-900/50 border-zinc-700 text-gray-300 hover:bg-zinc-800/60 hover:border-zinc-600 hover:text-white'
-                    }`}
-                  >
-                    <category.icon className="w-3 h-3 sm:w-4 sm:h-4" />
-                    {category.name}
-                  </button>
-                ))}
+                {categoriesMemo.map((category) => {
+                  const Icon = category.icon
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setSelectedCategory(category.id)}
+                      className={`category-button px-3 py-2 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border backdrop-blur-sm flex items-center gap-1.5 ${
+                        selectedCategory === category.id
+                          ? 'bg-[#a70240] border-[#a70240] text-white shadow-lg shadow-[#a70240]/30'
+                          : 'bg-zinc-900/50 border-zinc-700 text-gray-300 hover:bg-zinc-800/60 hover:border-zinc-600 hover:text-white'
+                      }`}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      <span>{category.name}</span>
+                    </button>
+                  )
+                })}
               </div>
             </div>
-
             {/* Partners Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-              {filteredPartners.map((partner) => (
-                <button
-                  key={partner.id}
-                  onClick={(e) => { handlePartnerClick(partner); e.currentTarget.blur(); }}
-                  className="partner-card group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-zinc-800/40 hover:border-[#a70240]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a70240]/50 cursor-pointer touch-manipulation"
-                >
-                  <div className="relative aspect-[4/3] flex items-center justify-center p-0">
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="partner-logo max-w-full max-h-full object-contain opacity-70 filter grayscale transition-all duration-300"
-                    />
-                    {/* Hover overlay - only on desktop */}
-                    <div className="partner-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 rounded-xl"></div>
-                  </div>
-                </button>
-              ))}
-            </div>
-            
-            {/* Empty state */}
-            {filteredPartners.length === 0 && (
-              <div className="text-center py-8">
-                <p className="text-gray-400 text-sm">
-                  Nenhum parceiro encontrado nesta categoria.
-                </p>
+            {selectedCategory === 'all' ? (
+              <div className="space-y-8">
+                {categoriesMemo
+                  .filter((cat) => cat.id !== 'all')
+                  .map((cat) => {
+                    const items = partners.filter((p) => p.category === cat.id)
+                    if (!items.length) return null
+                    const Icon = cat.icon
+                    return (
+                      <div key={cat.id}>
+                        <div className="flex items-center gap-2 mb-3">
+                          <Icon className="w-4 h-4 text-[#a70240]" />
+                          <h3 className="text-white font-semibold text-sm tracking-wide">
+                            {cat.name}
+                          </h3>
+                          <div className="flex-1 h-px bg-gradient-to-r from-[#a70240]/40 via-zinc-700/40 to-transparent ml-2"></div>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                          {items.map((partner) => (
+                            <button
+                              key={partner.id}
+                              onClick={(e) => { handlePartnerClick(partner); e.currentTarget.blur(); }}
+                              className="partner-card group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-zinc-800/40 hover:border-[#a70240]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a70240]/50 cursor-pointer touch-manipulation"
+                            >
+                              <div className="relative aspect-[4/3] flex items-center justify-center p-0">
+                                <img
+                                  src={partner.logo}
+                                  alt={partner.name}
+                                  className="partner-logo max-w-full max-h-full object-contain opacity-70 filter grayscale transition-all duration-300"
+                                />
+                                <div className="partner-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 rounded-xl"></div>
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  })}
               </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                  {filteredPartners.map((partner) => (
+                    <button
+                      key={partner.id}
+                      onClick={(e) => { handlePartnerClick(partner); e.currentTarget.blur(); }}
+                      className="partner-card group relative overflow-hidden rounded-xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-zinc-800/40 hover:border-[#a70240]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a70240]/50 cursor-pointer touch-manipulation"
+                    >
+                      <div className="relative aspect-[4/3] flex items-center justify-center p-0">
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className="partner-logo max-w-full max-h-full object-contain opacity-70 filter grayscale transition-all duration-300"
+                        />
+                        <div className="partner-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 rounded-xl"></div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                {filteredPartners.length === 0 && (
+                  <div className="text-center py-8">
+                    <p className="text-gray-400 text-sm">
+                      Nenhum parceiro encontrado nesta categoria.
+                    </p>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
           {/* Footer */}
           <div className="mt-16 text-center animate-fade-in">
             <p className="text-gray-600 text-sm">
-              © 2025 Phoenix, Inglês de Verdade! Todos os direitos reservados.
+              2025 Phoenix, Inglês de Verdade! Todos os direitos reservados.
             </p>
           </div>
         </div>
