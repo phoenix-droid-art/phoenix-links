@@ -208,13 +208,13 @@ function App() {
     },
     { 
       id: 12,
-      name: 'Frango ao Vinho',
-      category: 'food', 
-      logo: 'https://i.ibb.co/sd9Pmzf7/galeteria-frango-ao-vinho.jpg',
-      benefits: '',
-      instagram: 'https://www.instagram.com/frangoaovinho.ofc',
-      whatsapp: 'https://api.whatsapp.com/send/?phone=5599981421384',
-      address: 'Travessa Carvalinho, 68B - Centro, Pedreiras - MA'
+      name: 'Raízes Naturalle',
+      category: 'health', 
+      logo: 'https://i.ibb.co/vv4TBnBB/raizes-naturalle.jpg',
+      benefits: '**15% de desconto** em produtos naturais de beleza e bem-estar + **frete grátis** para Pedreiras.',
+      instagram: 'https://www.instagram.com/raizes.naturalle',
+      whatsapp: 'https://api.whatsapp.com/send/?phone=5599985307832',
+      address: 'Av. Abílio Monteiro, Nº 1359B - Centro, Pedreiras - MA (ao lado da Recar-Tur)'
     },
     { 
       id: 13,
@@ -223,10 +223,25 @@ function App() {
       logo: 'https://i.ibb.co/HfnmMscW/recar-tur.jpg',
       benefits: '',
       whatsapp: 'https://api.whatsapp.com/send/?phone=5599981234266',
-      address: 'R. Abílio Monteiro, 1359 - Engenho, Pedreiras - MA'
+      address: 'Av. Abílio Monteiro, Nº 1359 - Engenho, Pedreiras - MA'
     },
     { 
       id: 14,
+      name: 'Prime Barbearia',
+      category: 'services', 
+      logo: 'https://i.ibb.co/6Rg6cwqK/prime-barbearia.jpg',
+      benefits: [
+        'Corte de cabelo: de R$30 por R$25',
+        'Barba simples: gratuita junto ao corte (válido para ajustes leves, como aparar pelinhos ou bigode)',
+        'Barba completa + corte de cabelo: R$35 a R$40, conforme o volume e o tipo de barba',
+        'Sobrancelha gratuita em qualquer uma das opções acima',
+        'Tratamento incluso: pomada modeladora para cabelo e óleo para barba'
+      ],
+      whatsapp: 'https://api.whatsapp.com/send/?phone=55999',
+      address: ''
+    },
+    { 
+      id: 15,
       name: 'Multi-Pro Serviços',
       category: 'services', 
       logo: 'https://i.ibb.co/fGpgRnTf/multipro-servicos.jpg',
