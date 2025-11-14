@@ -164,7 +164,7 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
             </div>
           )}
           {/* Social Links */}
-          <div className="flex gap-3 justify-center pt-2">
+          <div className="flex gap-3 justify-center pt-2 flex-wrap">
             {partner.instagram && (
               <a
                 href={partner.instagram}
@@ -177,16 +177,37 @@ const PartnerModal = ({ partner, isOpen, onClose }) => {
               </a>
             )}
 
-            {partner.whatsapp && (
-              <a
-                href={partner.whatsapp.startsWith('http') ? partner.whatsapp : `https://wa.me/${partner.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 rounded-lg transition-all duration-150 transform hover:scale-105"
-              >
-                <FaWhatsapp className="w-4 h-4 text-white" />
-                <span className="text-white text-sm font-medium">WhatsApp</span>
-              </a>
+            {Array.isArray(partner.whatsapp) ? (
+              partner.whatsapp.map((w, idx) => {
+                const value = typeof w === 'string' ? w : (w?.url ?? w?.phone ?? '')
+                const href = value?.startsWith('http') ? value : (value ? `https://wa.me/${value}` : '')
+                const label = typeof w === 'string' ? `WhatsApp ${idx + 1}` : (w?.label || `WhatsApp ${idx + 1}`)
+                if (!href) return null
+                return (
+                  <a
+                    key={idx}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 rounded-lg transition-all duration-150 transform hover:scale-105"
+                  >
+                    <FaWhatsapp className="w-4 h-4 text-white" />
+                    <span className="text-white text-sm font-medium">{label}</span>
+                  </a>
+                )
+              })
+            ) : (
+              partner.whatsapp && (
+                <a
+                  href={partner.whatsapp.startsWith('http') ? partner.whatsapp : `https://wa.me/${partner.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 rounded-lg transition-all duration-150 transform hover:scale-105"
+                >
+                  <FaWhatsapp className="w-4 h-4 text-white" />
+                  <span className="text-white text-sm font-medium">WhatsApp</span>
+                </a>
+              )
             )}
           </div>
 
